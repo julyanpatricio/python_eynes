@@ -15,7 +15,29 @@ mostrar un error y no permitir modificación.
 Permitir la multiplicación del circulo: Circulo * n debe devolver un nuevo objeto con el radio multiplicado por n. No permitir la multiplicación por números <= 0 '''
 import math
 
-class Circulo:
+class Circulo():
+    '''
+    
+    --- TEST **hacerlo mejor requeriria mayor tiempo para realizar varios try-except** ---
+    >>> Circulo(2)
+    Circulo(2)
+    
+    >>> Circulo(0)
+    Traceback (most recent call last):
+    ...
+    ValueError: El radio debe ser mayor a cero
+
+    >>> Circulo()
+    Traceback (most recent call last):
+    ...
+    TypeError: __init__() missing 1 required positional argument: 'valor'
+    
+    >>> Circulo(3) * 2
+    Circulo(6)
+    '''
+    
+    
+    
     def __init__(self, valor):
         if valor <= 0:
             raise ValueError(f'El radio debe ser mayor a cero')
@@ -48,3 +70,7 @@ class Circulo:
         if n <= 0:
             raise ValueError(f'El radio debe ser mayor a cero')
         return Circulo(self.radio * n)
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
