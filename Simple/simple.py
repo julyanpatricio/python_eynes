@@ -11,7 +11,7 @@ def lista_diccionarios():
 
 ''' Hacer otra función que reciba lo generado en la primer función y ordenarlo de mayor amenor. Printear el id de la persona más joven y más vieja. Devolver la lista ordenada. ''' 
 def ord_div(lista):
-    '''divide los elementos de la lista recursivamente'''
+    ''' divide los elementos de la lista recursivamente'''
     if len(lista) <     2:
         return lista
     medio = len(lista) // 2
@@ -41,8 +41,22 @@ def unir_en_orden(lista1, lista2):
 
 
 def busqueda_diccionario(dic):
-    return
+    '''
+    pre-condicion: dic debe ser una lista de diccionarios que contangan como claves las palabras 'id' y 'edad' y sus valores sean numeros enteros
+    
+    --- TEST **hacerlo mejor requeriria mayor tiempo para realizar varios try-except** ---
+    >>> busqueda_diccionario([{'id':1, 'edad':25},{'id':2, 'edad':100},{'id':3, 'edad':9},{'id':4, 'edad':1}])
+    {'id_persona_joven': 4, 'id_persona_vieja': 2}
+    '''
+    
+    lista_ordenada = ord_div(dic)
+    return {'id_persona_joven':lista_ordenada[-1]['id'], 'id_persona_vieja':lista_ordenada[0]['id']}
 
-dic= lista_diccionarios()
-lista_ordenada = ord_div(dic)
-print(f"El id de la persona mas joven y de la mas vieja es {lista_ordenada[-1]['id']} y {lista_ordenada[0]['id']} respectivamente")
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+    dic= lista_diccionarios()
+resultado = busqueda_diccionario(dic)
+print(f"El id de la persona mas joven y de la mas vieja es {resultado['id_persona_joven']} y {resultado['id_persona_vieja']} respectivamente")
