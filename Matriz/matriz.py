@@ -10,9 +10,11 @@ import numpy as np
 
 ''' Crear una matriz de 5x5 randomizada con números enteros, encontrar secuencia de 4 números consecutivos horizontal o vertical y si se encuentra mostrar la posición inicial y final '''
 
+
+
 def busqueda_4_consecutivos(matriz, nRecorrido = 0):
     '''
-    pre-condicion: dic debe ser una lista de diccionarios que contangan como claves las palabras 'id' y 'edad' y sus valores sean numeros enteros
+    pre-condicion: matriz debe ser una matriz cuadra mayor o igual a 4x4
     
     --- TEST **hacerlo mejor requeriria mayor tiempo para realizar varios try-except** ---
     >>> busqueda_4_consecutivos([[1,2,3,4,5],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1]])
